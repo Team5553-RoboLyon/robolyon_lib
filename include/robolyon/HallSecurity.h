@@ -3,10 +3,8 @@
 //
 
 #include <frc/DigitalInput.h>
-#include <spdlog/spdlog.h>
 
-class HallSecurity
-{
+class HallSecurity {
 
 public:
     HallSecurity(int hallDIO);
@@ -30,8 +28,7 @@ public:
     bool ShouldIStopTwo(int outputSigne);
 
 private:
-    enum state
-    {
+    enum state {
         max_Direction,
         min_Direction,
         maxMin_Direction,
