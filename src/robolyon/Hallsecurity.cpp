@@ -2,7 +2,7 @@
 // Created by eymeric on 13/03/2022.
 //
 
-#include "lib/HallSecurity.h"
+#include <robolyon/HallSecurity.h>
 
 HallSecurity::HallSecurity(int hallDIO, double tolerance)
 {
@@ -39,7 +39,7 @@ HallSecurity::HallSecurity(int hallDIORight, int hallDIOLeft, double tolerance)
 HallSecurity::~HallSecurity()
 {
     delete m_SensorHall1;
-    delete m_SensorHall2
+    delete m_SensorHall2;
 }
 
 void HallSecurity::setInverted(bool inverted)
@@ -126,7 +126,7 @@ bool HallSecurity::ShouldIStop(double currentPosition, int outputSigne)
     return retour;
 }
 
-bool HallSecurity::MagnetDetected(bool two = false)
+bool HallSecurity::MagnetDetected(bool two)
 {
     if (doubleHall)
     {
