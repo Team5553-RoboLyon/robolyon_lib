@@ -4,12 +4,15 @@
 
 #include <frc/DigitalInput.h>
 
-class HallSecurity {
+class HallSecurity
+{
 
 public:
     HallSecurity(int hallDIO);
 
     HallSecurity(int hallDIORight, int hallDIOLeft);
+
+    HallSecurity(int hallDIORight, int hallDIOLeft, double tolerance);
 
     HallSecurity(int hallDIO, double tolerance);
 
@@ -19,16 +22,11 @@ public:
 
     bool ShouldIStop(double currentPosition, int outputSigne);
 
-    bool MagnetDetected();
-
-    bool MagnetDetectedRight();
-
-    bool MagnetDetectedLeft();
-
-    bool ShouldIStopTwo(int outputSigne);
+    bool MagnetDetected(bool two = false);
 
 private:
-    enum state {
+    enum state
+    {
         max_Direction,
         min_Direction,
         maxMin_Direction,
@@ -36,9 +34,9 @@ private:
 
     std::string stateToString(state state);
 
-    frc::DigitalInput *m_SensorHall;
-    frc::DigitalInput *m_SensorHallRight;
-    frc::DigitalInput *m_SensorHallLeft;
+    frc::DigitalInput *m_SensorHall1;
+    frc::DigitalInput *m_SensorHall2;
+    bool doubleHall = false;
 
     double m_DeltaPosition = 0.0;
     double m_PositionBefore = 0.0;
